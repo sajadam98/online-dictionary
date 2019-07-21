@@ -1,14 +1,22 @@
-var count = 0;
-var text = document.getElementById("text");
-var down = document.getElementById("down");
-var up = document.getElementById("up");
-down.addEventListener("click", down_f);
-up.addEventListener("click", up_f);
-function up_f() {
-  count++;
-  text.innerHTML = count;
-}
-function down_f() {
-  count--;
-  text.innerHTML = count;
-}
+
+    
+        var count =1;
+        var mainText = document.getElementById("text_shown");
+        var listItems = document.querySelectorAll("#list li");
+        var list = document.querySelector("#list")
+        var button = document.getElementById("btn_add");
+
+        list.addEventListener("click" , clickItem);
+
+        function clickItem(e){
+            if(e.target.nodeName == "LI"){
+                mainText.innerHTML = e.target.innerHTML;
+            }
+        }
+
+        button.addEventListener("click" , addNewItem);
+        
+        function addNewItem(){
+            list.innerHTML += "<li>new Item " +count+"</li>";
+            count++;
+        }
