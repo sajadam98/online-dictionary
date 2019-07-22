@@ -1,33 +1,27 @@
-var button = document.getElementById("btn_generate");
-        var image = document.getElementById("img_user");
-        var fullName = document.getElementById("fullName");
-        var email = document.getElementById("email");
-        var phone = document.getElementById("phone");
-        var cell = document.getElementById("cell");
+var button = document.getElementById("btn_translate");
+var edtDictionary = document.getElementById("edt_Dictionary");
+var Translated = document.getElementById("txt_translate");
+var selectFrom = document.getElementById("select_from");
+var selectTo = document.getElementById("select_to");
 
-        var Request = new XMLHttpRequest();
-        Request.open("GET" , "https://randomuser.me/api/");
-        Request.onload = function(){
-            var data = JSON.parse(Request.responseText);
-            renderUser(data);
-        }
-        Request.send();
+button.addEventListener("click", Translate);
 
-        button.addEventListener("click" , btnClick);
+console.log(selectFrom.options[selectFrom.selectedIndex].value);
+var Request = new XMLHttpRequest();
 
-        function btnClick(){
-            Request.open("GET" , "https://randomuser.me/api/");
-        Request.onload = function(){
-            var data = JSON.parse(Request.responseText);
-            renderUser(data);
-        }
-        Request.send();
-        }
-        function renderUser(data){
-            image.src = data.results[0].picture.medium;
-            fullName.innerHTML = "Name : " + data.results[0].name.first + " " + data.results[0].name.last;
-            email.innerHTML = "Email : " + data.results[0].email;
-            phone.innerHTML = "PhoneNumber : " + data.results[0].phone;
-            cell.innerHTML = "Cell : " + data.results[0].cell;
-        }
-  //text.insertAdjacentHTML('beforeend' , htmlString)
+function Translate() {
+  button.disabled = true;
+  Request.open(
+    "GET",
+    "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20190722T062110Z.5f5465fc8ae5efb9.4218583f102455773fa9f2e8146c8928e25a37f6&lang="
+        + selectFrom.options[selectFrom.selectedIndex].value + "-" + 
+        selectTo.options[selectTo.selectedIndex].value + "&text=" +
+        edtDictionary.value
+  );
+  Request.onload = function() {
+    var data = JSON.parse(Request.responseText);
+    Translated.innerHTML = data.text;
+    button.disabled = false;
+  };
+  Request.send();
+}

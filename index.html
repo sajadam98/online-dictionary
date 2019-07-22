@@ -5,18 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Json And Ajax</title>
-    <link rel="stylesheet" >
+    <link rel="stylesheet" href="design.css" >
 </head>
 <body>
     <header>
-        <h1>Generate User</h1>
+        <h1>Dictionary</h1>
     </header>
-    <img id="img_user" >
-    <div id="fullName"></div>
-    <div id="email"></div>
-    <div id="phone"></div>
-    <div id="cell"></div>
-    <button id="btn_generate">Generate User</button>
+    <img style="height: 25" style="width: 30" id="img_user" src="https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/e1/6e/0d/e16e0dce-31f9-01e5-6557-e684f82d8a69/AppIcon.png/1200x630bb.png" >
+    <input id="edt_Dictionary" placeholder="Text"></input>
+    <form id="sub_body">
+    <div id="txt_from">From : </div>
+    <select id="select_from">
+        <option value="en" selected="selected">en</option>
+        <option value="fa">fa</option>
+        <option value="ar">ar</option>
+        <option value="fr">fr</option>
+    </select>
+    <p id="txt_to">To : </p>
+    <select id="select_to">
+        <option value="en">en</option>
+        <option value="fa" selected="selected">fa</option>
+        <option value="ar">ar</option>
+        <option value="fr">fr</option>
+    </select>
+</form>
+    <button id="btn_translate">Translate</button>
+    <div id="txt_translate"></div>
     <script src="javascript.js">
     </script>
 </body>
