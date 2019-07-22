@@ -1,5 +1,4 @@
 # online-dictionary
-##API Limitation
 If the Service is used for commercial purposes to provide online search and/or navigation services,
 the User shall notify his client and provide a link to the Yandex Service (www.yandex.com).
 The User may post on his personal or corporate website the Yandex search form with mandatory observance
