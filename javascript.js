@@ -1,36 +1,33 @@
-var button = document.getElementById("btn_fetch");
-var text = document.getElementById("animal_info");
-var Request = new XMLHttpRequest();
-var urlCounter = 1;
+var button = document.getElementById("btn_generate");
+        var image = document.getElementById("img_user");
+        var fullName = document.getElementById("fullName");
+        var email = document.getElementById("email");
+        var phone = document.getElementById("phone");
+        var cell = document.getElementById("cell");
 
-button.addEventListener("click", fetchData);
+        var Request = new XMLHttpRequest();
+        Request.open("GET" , "https://randomuser.me/api/");
+        Request.onload = function(){
+            var data = JSON.parse(Request.responseText);
+            renderUser(data);
+        }
+        Request.send();
 
-function fetchData() {
-  Request.open(
-    "GET",
-    "https://learnwebcode.github.io/json-example/animals-"
-     + urlCounter + ".json"
-  );
-  Request.onload = function() {
-    var data = JSON.parse(Request.responseText);
-        renderHTML(data);
-  };
-  Request.send();
-  urlCounter++;
-  if(urlCounter > 3){
-    //button.classList.add("hide-me");  need css code
-  }
-}
+        button.addEventListener("click" , btnClick);
 
-function renderHTML(data){
-  var htmlString = "";
-
-  for (let index = 0; index < data.length; index++) {
-    htmlString += "<p>" + data[index].name + " is a " +
-     data[index].species + " and like " + data[index].foods.likes[0] +
-      " and " + data[index].foods.likes[1] + " and dislike " +
-      data[index].foods.dislikes[0] + " and " + data[index].foods.dislikes[1] + "</p>";
-  }
-
-  text.insertAdjacentHTML('beforeend' , htmlString)
-}
+        function btnClick(){
+            Request.open("GET" , "https://randomuser.me/api/");
+        Request.onload = function(){
+            var data = JSON.parse(Request.responseText);
+            renderUser(data);
+        }
+        Request.send();
+        }
+        function renderUser(data){
+            image.src = data.results[0].picture.medium;
+            fullName.innerHTML = "Name : " + data.results[0].name.first + " " + data.results[0].name.last;
+            email.innerHTML = "Email : " + data.results[0].email;
+            phone.innerHTML = "PhoneNumber : " + data.results[0].phone;
+            cell.innerHTML = "Cell : " + data.results[0].cell;
+        }
+  //text.insertAdjacentHTML('beforeend' , htmlString)
