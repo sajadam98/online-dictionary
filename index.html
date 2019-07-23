@@ -5,33 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Json And Ajax</title>
-    <link rel="stylesheet" href="design.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Dictionary</h1>
-    </header>
-    <img style="height: 25" style="width: 30" id="img_user" src="https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/e1/6e/0d/e16e0dce-31f9-01e5-6557-e684f82d8a69/AppIcon.png/1200x630bb.png" >
-    <input id="edt_Dictionary" placeholder="Text"></input>
-    <form id="sub_body">
-    <div id="txt_from">From : </div>
-    <select id="select_from">
-        <option value="en" selected="selected">en</option>
-        <option value="fa">fa</option>
-        <option value="ar">ar</option>
-        <option value="fr">fr</option>
-    </select>
-    <p id="txt_to">To : </p>
-    <select id="select_to">
-        <option value="en">en</option>
-        <option value="fa" selected="selected">fa</option>
-        <option value="ar">ar</option>
-        <option value="fr">fr</option>
-    </select>
-</form>
-    <button id="btn_translate">Translate</button>
-    <div id="txt_translate"></div>
-    <script src="javascript.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col" style="text-align: center">
+                <header style="margin-top: 40px;margin-bottom: 30px;font-family: Arial, Helvetica, sans-serif;text-align: center">
+                    <h1>Dictionary</h1>
+                </header>
+                <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/e1/6e/0d/e16e0dce-31f9-01e5-6557-e684f82d8a69/AppIcon.png/1200x630bb.png"
+                    class="mr-3" alt="..." width="200px" height="200px">
+                <div class="input-group" style="margin-top: 40px;height: 50px; width: 100%">
+                    <div class="input-group-prepend" style="width: 15%">
+                        <span class="input-group-text" style="font-family: Arial, Helvetica, sans-serif;font-size: 16px;font-style: normal" >Text </span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" id="edt_translator"></textarea>
+                </div>
+                <form style="margin-top: 30px;margin-bottom: 40px">
+                    <h style="display: inline">From :</h>
+                    <select id="select_from" style="display: inline">
+                        <option value="en">en</option>
+                        <option value="fa" selected="selected">fa</option>
+                        <option value="ar">ar</option>
+                        <option value="fr">fr</option>
+                    </select>
+                    <h style="display: inline;margin-left: 30px">To :</h>
+                    <select id="select_to">
+                        <option value="en" selected="selected">en</option>
+                        <option value="fa">fa</option>
+                        <option value="ar">ar</option>
+                        <option value="fr">fr</option>
+                    </select>
+                </form>
+                <button type="button" class="btn btn-primary" id="btn_translator">Translate</button>
+                <div class="text-center" style="margin-top: 20px">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <ul style="background-color: darkgray;margin-top: 30px;width: 100%;font-size: 18px;text-align: start" id="txt_translate"></ul>
+            </div>
+            <div class="col" >
+            </div>
+        </div>
+        <script src="javascript.js"></script>
+    </div>
+    
 </body>
 </html>
